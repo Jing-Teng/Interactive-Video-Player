@@ -1,0 +1,163 @@
+<head>
+  <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+</head>
+
+<body>
+  <video
+    id="main_video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    poster="MAIN_VIDEO.jpg"
+    data-setup="{}"
+  >
+    <source src="MAIN_VIDEO.mp4" type="video/mp4" />
+    
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+	
+  </video>
+  
+  <!-- 選擇1 -->
+	<div id="conatinerA" style="display:none;">
+		  <video
+			id="a_video"
+			class="video-js"
+			controls
+			autoplay
+			preload="auto"
+			width="640"
+			height="264"
+			data-setup="{ }"
+		  >
+			<source src="A_VIDEO.mp4" type="video/mp4" />
+			
+			<p class="vjs-no-js">
+			  To view this video please enable JavaScript, and consider upgrading to a
+			  web browser that
+			  <a href="https://videojs.com/html5-video-support/" target="_blank"
+				>supports HTML5 video</a
+			  >
+			</p>
+		  </video>
+	</div>	  
+	<div id="conatinerB" style="display:none;">
+		  <video
+			id="b_video"
+			class="video-js"
+			controls
+			autoplay
+			preload="auto"
+			width="640"
+			height="264"
+			data-setup="{}"
+		  >
+			<source src="B_VIDEO.mp4" type="video/mp4" />
+			
+			<p class="vjs-no-js">
+			  To view this video please enable JavaScript, and consider upgrading to a
+			  web browser that
+			  <a href="https://videojs.com/html5-video-support/" target="_blank"
+				>supports HTML5 video</a
+			  >
+			</p>
+		  </video>	
+	</div>
+
+  <button id="btnA" onclick="playA()" style="display:none;">城市</button>
+  <button id="btnB" onclick="playB()" style="display:none;">郊外</button>	
+
+  <!-- 選擇2 -->
+  	<div id="conatiner" style="display:none;"></div>
+	<div id="conatiner" style="display:none;"></div>
+  <button id="btnAA" onclick="playAA()" style="display:none;">往左走</button>
+  <button id="btnAB" onclick="playAB()" style="display:none;">往右走</button>	
+
+  
+  	<div id="conatiner" style="display:none;"></div>
+	<div id="conatiner" style="display:none;"></div>
+  <button id="btnBA" onclick="playBA()" style="display:none;">往左走</button>
+  <button id="btnBB" onclick="playBB()" style="display:none;">往右走</button>	  
+  
+  <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
+  <script>
+		//const
+		const main_video = videojs('main_video');
+		const a_video = videojs('a_video');
+		const b_video = videojs('b_video');
+		
+		const conatinerA = document.getElementById('conatinerA');
+		const conatinerB = document.getElementById('conatinerB');
+		
+  		const btnA = document.getElementById('btnA');
+		const btnB = document.getElementById('btnB');
+		
+		
+
+		//main video
+		//main_video.on('play', () =>  main_video.controls(true))
+		main_video.on('ended', function hideButton() {
+			  btnA.style.display = "block";
+			  btnB.style.display = "block";
+			}		
+		)
+		
+		//A video
+		function playA() {
+			this.main_video.style.display = "none";
+			this.btnA.style.display = "none";
+			this.btnB.style.display = "none";	
+			
+			conatinerA.style.display = "block";
+			a_video.play();
+			//a_video.on('play', () => a_video.autoplay(true))
+			a_video.on('ended', function hideButton() {
+			}		
+			)		  
+		}			
+		
+		//B video
+		function playB() {
+			this.main_video.style.display = "none";
+			this.btnA.style.display = "none";
+			this.btnB.style.display = "none";
+			
+			conatinerB.style.display = "block";
+			b_video.play();			
+			//b_video.on('play', () => b_video.controls(true))
+			b_video.on('ended', function hideButton() {
+			}		
+			)		  
+		}		
+		
+		//AA vedio
+		function playAA() {
+			this.a_video.style.display = "none";
+			this.btnAA.style.display = "none";
+			this.btnAB.style.display = "none";
+			
+			conatinerAA.style.display = "block";
+			aa_video.play();			
+			//b_video.on('play', () => b_video.controls(true))
+			aa_video.on('ended', function hideButton() {
+			}		
+			)		  
+		}
+		
+		//AB vedio				
+		//BA vedio
+		//BB vedio
+	
+		
+  </script>
+</body>
