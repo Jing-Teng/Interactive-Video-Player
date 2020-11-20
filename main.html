@@ -74,20 +74,44 @@
 		  </video>	
 	</div>
 
-  <button id="btnA" onclick="playA()" style="display:none;">城市</button>
-  <button id="btnB" onclick="playB()" style="display:none;">郊外</button>	
+  <button id="btnA" onclick="playA()" style="display:none;">A. Project Atum</button>
+  <button id="btnB" onclick="playB()" style="display:none;">B. Project Thoth</button>	
 
   <!-- 選擇2 -->
-  	<div id="conatiner" style="display:none;"></div>
+  	
+	<div id="conatinerAA" style="display:none;">
+		  <video
+			id="aa_video"
+			class="video-js"
+			controls
+			autoplay
+			preload="auto"
+			width="640"
+			height="264"
+			data-setup="{ }"
+		  >
+			<source src="AA_VIDEO.mp4" type="video/mp4" />
+			
+			<p class="vjs-no-js">
+			  To view this video please enable JavaScript, and consider upgrading to a
+			  web browser that
+			  <a href="https://videojs.com/html5-video-support/" target="_blank"
+				>supports HTML5 video</a
+			  >
+			</p>
+		  </video>
+	</div>	  
+	
+	
 	<div id="conatiner" style="display:none;"></div>
-  <button id="btnAA" onclick="playAA()" style="display:none;">往左走</button>
-  <button id="btnAB" onclick="playAB()" style="display:none;">往右走</button>	
+  <button id="btnAA" onclick="playAA()" style="display:none;">A. Smart Medical</button>
+  <button id="btnAB" onclick="playAB()" style="display:none;">B. Smart Mobility</button>	
 
   
   	<div id="conatiner" style="display:none;"></div>
 	<div id="conatiner" style="display:none;"></div>
-  <button id="btnBA" onclick="playBA()" style="display:none;">往左走</button>
-  <button id="btnBB" onclick="playBB()" style="display:none;">往右走</button>	  
+  <button id="btnBA" onclick="playBA()" style="display:none;">A. Smart EDU and ENT</button>
+  <button id="btnBB" onclick="playBB()" style="display:none;">B. Smart Monitech</button>	  
   
   <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
   <script>
@@ -95,14 +119,24 @@
 		const main_video = videojs('main_video');
 		const a_video = videojs('a_video');
 		const b_video = videojs('b_video');
+		const aa_video = videojs('aa_video');
+		//const ab_video = videojs('ab_video');
+		//const ba_video = videojs('ba_video');
+		//const bb_video = videojs('bb_video');
 		
 		const conatinerA = document.getElementById('conatinerA');
 		const conatinerB = document.getElementById('conatinerB');
+		const conatinerAA = document.getElementById('conatinerAA');
+		//const conatinerAB = document.getElementById('conatinerAB');
+		//const conatinerBA = document.getElementById('conatinerBA');
+		//const conatinerBB = document.getElementById('conatinerBB');
 		
   		const btnA = document.getElementById('btnA');
 		const btnB = document.getElementById('btnB');
-		
-		
+  		const btnAA = document.getElementById('btnAA');
+		const btnAB = document.getElementById('btnAB');		
+		const btnBA = document.getElementById('btnBA');
+		const btnBB = document.getElementById('btnBB');
 
 		//main video
 		//main_video.on('play', () =>  main_video.controls(true))
@@ -122,8 +156,9 @@
 			a_video.play();
 			//a_video.on('play', () => a_video.autoplay(true))
 			a_video.on('ended', function hideButton() {
-			}		
-			)		  
+				btnAA.style.display = "block";
+				btnAB.style.display = "block";
+			});
 		}			
 		
 		//B video
@@ -135,9 +170,10 @@
 			conatinerB.style.display = "block";
 			b_video.play();			
 			//b_video.on('play', () => b_video.controls(true))
-			b_video.on('ended', function hideButton() {
-			}		
-			)		  
+			a_video.on('ended', function hideButton() {
+				btnBA.style.display = "block";
+				btnBB.style.display = "block";
+			});	  
 		}		
 		
 		//AA vedio
@@ -148,16 +184,16 @@
 			
 			conatinerAA.style.display = "block";
 			aa_video.play();			
-			//b_video.on('play', () => b_video.controls(true))
+			//aa_video.on('play', () => aa_video.controls(true))
 			aa_video.on('ended', function hideButton() {
-			}		
-			)		  
+			});			  
 		}
 		
 		//AB vedio				
 		//BA vedio
 		//BB vedio
 	
+
 		
   </script>
 </body>
